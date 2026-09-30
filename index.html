@@ -2,6 +2,7 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Portfolio</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -55,16 +56,28 @@
 
   <h2>📁 Portfolio ของฉัน</h2>
   <div class="dots" id="dots"></div>
-  <img id="slide" src="immage/1.png" alt="Portfolio Page">
+  <img id="slide" src="immage/S__25378820.jpg" alt="Portfolio Page">
   <div class="controls">
     <button id="prev" onclick="changePage(-1)" disabled>◀ ก่อนหน้า</button>
-    <span id="pageNum">1 / 13</span>
+    <span id="pageNum">1 / 10</span>
     <button id="next" onclick="changePage(1)">ถัดไป ▶</button>
   </div>
 
   <script>
+    const files = [
+      'S__25378820.jpg',
+      'S__25378821.jpg',
+      'S__25378822.jpg',
+      'S__25378823.jpg',
+      'S__25378824.jpg',
+      'S__25378825.jpg',
+      'S__25378826.jpg',
+      'S__25378827.jpg',
+      'S__25378828.jpg',
+      'S__25378829.jpg'
+    ];
+    const total = files.length;
     let current = 1;
-    const total = 13;
 
     const dotsContainer = document.getElementById('dots');
     for (let i = 1; i <= total; i++) {
@@ -76,7 +89,7 @@
 
     function goToPage(n) {
       current = n;
-      document.getElementById('slide').src = 'immage/' + current + '.png';
+      document.getElementById('slide').src = 'immage/' + files[current - 1];
       document.getElementById('pageNum').textContent = current + ' / ' + total;
       document.getElementById('prev').disabled = current === 1;
       document.getElementById('next').disabled = current === total;
